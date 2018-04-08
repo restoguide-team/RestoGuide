@@ -8,3 +8,12 @@ web/.DS_Store
 web/favicon.ico
 web/index-test.php
 web/robots.txt
+web/assets/.gitignore
+vendor/
+vagrant/
+tests/
+assets/
+runtime/
+mail/
+commands/
+config/
