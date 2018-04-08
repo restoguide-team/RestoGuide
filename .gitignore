@@ -1,0 +1,10 @@
+.idea/
+web/assets/
+web/fonts/
+web/img/
+web/js/plagin/
+web/js/.DS_Store
+web/.DS_Store
+web/favicon.ico
+web/index-test.php
+web/robots.txt
