@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
+
+
+@font-face {
+			font-family: "DroidSerifItalic";
+			src: url("../fonts/DroidSerifItalic/DroidSerifItalic.eot");
+			src: url("../fonts/DroidSerifItalic/DroidSerifItalic.eot?#iefix")format("embedded-opentype"),
+			url("../fonts/DroidSerifItalic/DroidSerifItalic.woff") format("woff"),
+			url("../fonts/DroidSerifItalic/DroidSerifItalic.ttf") format("truetype");
+			font-style: normal;
+			font-weight: normal;
+	}
+
+@font-face {
+			font-family: "RobotoSlabRegular";
+			src: url("../fonts/RobotoSlabRegular/RobotoSlabRegular.eot");
+			src: url("../fonts/RobotoSlabRegular/RobotoSlabRegular.eot?#iefix")format("embedded-opentype"),
+			url("../fonts/RobotoSlabRegular/RobotoSlabRegular.woff") format("woff"),
+			url("../fonts/RobotoSlabRegular/RobotoSlabRegular.ttf") format("truetype");
+			font-style: normal;
+			font-weight: normal;
+	}
