@@ -17,8 +17,6 @@ use yii\helpers\Html;
 ?>
 
     <?php $login = ActiveForm::begin([
-        'id' => 'login_form',
-        'options' => ['class' => 'loginform'],
         'enableAjaxValidation' => true,
         'action' => ['site/login']
     ]);?>
