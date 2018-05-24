@@ -6,8 +6,10 @@
  * Time: 16:30
  */
 
+use app\models\BookingForm;
+use app\widgets\ButBooking_wid;
 use yii\helpers\Html;
-
+use yii\widgets\ActiveForm;
 
 $this->title = "restaurant"
 ?>
@@ -54,11 +56,32 @@ $this->title = "restaurant"
                 <p>
                     <?=$mod->about_more;?>
                 </p>
-            <? endif;?>
+            <? endif;
+            ?>
+            <?= ButBooking_wid::widget(['id'=>$mod->id_rest]); ?>
             <div class="booking_but">
-                <a href="">Забронировать</a>
+                <a data-toggle="modal" , data-target ='#booking_modal', href="#">Забронировать</a>
             </div>
         </div>
+            <?php $bok = ActiveForm::begin([
+                'enableAjaxValidation' => true,
+                'action' => ['search/booking'],
+                'options' => ['class' => 'booking_form'],
+            ]);?>
+            <?
+                $form = new BookingForm(); ?>
+                <h4>Забронировать место в ресторане <?=$mod->name?></h4>
+            <?
+                echo $bok->field($form, 'rest')->hiddenInput(['value' => $mod->id_rest])->label(false);
+                echo $bok->field($form, 'data')->label('Введите дату')
+                    ->widget(\yii\widgets\MaskedInput::className(), [
+                        'mask' => '99-99-9999',
+                    ]);
+                echo $bok->field($form, 'count')->label('Введите количество человек');
+                echo Html::submitButton('Забронировать', ['class' => 'btn send_form']);
+             ?>
+            <?php ActiveForm::end() ?>
         <?php endforeach; ?>
     </section>
+
 </main>
