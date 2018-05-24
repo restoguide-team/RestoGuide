@@ -4,15 +4,13 @@ namespace app\controllers;
 
 use app\models\CheckinUserForm;
 use app\models\LinkForm;
+use app\models\RegistrationUserForm;
 use app\models\Resto;
-use app\models\Image;
 use HttpException;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\ContactForm;
 use app\models\LoginForm;
 
 
@@ -57,9 +55,6 @@ class SiteController extends Controller
            if($form->load(Yii::$app->request->post()) && $form->validate()){
 
            }
-
-
-
             return $this->render('index', ['model'=>$model, 'form'=>$form ]);
         }
 
@@ -75,7 +70,7 @@ class SiteController extends Controller
                 {
                     if ($formlog->login())
                     {
-                        return $this->goBack();
+                        return $this->redirect(Yii::$app->request->referrer);
                     }
                     else {
                         Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
@@ -92,20 +87,20 @@ class SiteController extends Controller
         {
             Yii::$app->user->logout();
 
-            return $this->goBack();
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
 
 
     public function actionCheckinuser()
     {
-        $form = new CheckinUserForm();
+        $form = new RegistrationUserForm();
         if ($form->load(Yii::$app->request->post())){
             if ($form->validate())
             {
                 $form->saveuser();
                // var_dump('успех');
-                return $this->goBack();
+                return $this->redirect(Yii::$app->request->referrer);
             }
         }
         return $this->render('checkinuser', ['form'=>$form ]);
